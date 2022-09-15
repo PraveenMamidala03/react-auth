@@ -22,10 +22,12 @@ import axios from 'axios';
           this.setState({
               loggedIn:true
           })
+          this.props.setUser(response.data.user);
         })
         .catch( (error) =>{
           console.log(error);
         });
+
       }
   render() {
       if (this.state.loggedIn) {
