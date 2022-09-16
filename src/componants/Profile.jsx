@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Navigate  } from "react-router-dom";
 
  class Profile extends Component {
   render() {
@@ -11,6 +12,10 @@ import React, { Component } from 'react'
     if (this.props.user.email) {
       email = this.props.user.email;
     }
+     if (!localStorage.getItem('token')) {
+      return <Navigate  to="/login" />
+     }
+
     return (
       <div><br /><br /><br /><br />
       <div class="row">

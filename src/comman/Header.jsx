@@ -5,7 +5,7 @@ import Login from '../componants/Login';
 import Register from '../componants/Register';
 import Forget from '../componants/Forget';
 import Profile from '../componants/Profile';
-
+import Reset from '../componants/Reset';
 import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
 import axios from 'axios';
 
@@ -38,10 +38,11 @@ class Header extends Component {
             <Nav user={this.state.user} setUser={this.setUser} />
             <Routes>
                  <Route exact path="/" element={<Home/>} />
-                 <Route exact path="/login" element={<Login/>} />
-                 <Route exact path="/register" element={<Register/>} />
+                 <Route exact path="/login" element={<Login user={this.state.user} setUser={this.setUser}/>} />
+                 <Route exact path="/register" element={<Register user={this.state.user} setUser={this.setUser} />} />
                  <Route exact path="/forget" element={<Forget/>} />
                  <Route exact path="/profile" element={<Profile user={this.state.user}/>} />
+                 <Route exact path="/reset/:id" element={<Reset/>} />
             </Routes>
             </div>
         </Router>
